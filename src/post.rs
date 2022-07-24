@@ -1,9 +1,8 @@
 use serde::{Deserialize, Serializer};
 
+
+// TODO: add the neccesery values.
 #[derive(Deserialize)]
 pub struct Post {
-    pub subbreddit: String,
-    pub selftext: String,
-    pub selftext_html: String,
-    pub author_fullname: String,
+
 }
