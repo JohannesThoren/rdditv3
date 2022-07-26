@@ -1,9 +1,9 @@
 use serde;
 
-mod post;
-mod response;
-mod http;
-mod url_builder;
+pub mod post;
+pub mod response;
+pub mod http;
+pub mod url_builder;
 #[cfg(test)]
 mod tests {
     use crate::{response, url_builder};
