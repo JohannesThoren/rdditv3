@@ -10,13 +10,24 @@ pub enum Sorting {
 }
 
 impl Sorting {
-    fn get(&self) -> String {
+    pub fn get(&self) -> String {
         return match &self {
             Sorting::BEST => "best".to_string(),
             Sorting::HOT => "hot".to_string(),
             Sorting::NEW => "new".to_string(),
             Sorting::TOP => "top".to_string(),
             Sorting::RISING => "rising".to_string(),
+        };
+    }
+
+    pub fn from_string(s: String) -> Sorting {
+        return match s.as_str() {
+            "best" => Sorting::BEST,
+            "hot" => Sorting::HOT,
+            "new" => Sorting::NEW,
+            "top" => Sorting::TOP,
+            "rising" => Sorting::RISING,
+            _ => Sorting::NEW,
         };
     }
 }
