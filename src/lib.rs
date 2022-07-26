@@ -2,6 +2,7 @@ use serde;
 
 mod post;
 mod response;
+mod http;
 mod url_builder;
 #[cfg(test)]
 mod tests {
@@ -38,4 +39,22 @@ mod tests {
         let url = ub.build();
         println!("{}",url)
     }
+
+    use crate::http;
+
+    #[tokio::test]
+    async fn test_fetch() {
+        let ub = url_builder::URLBuilder::new(
+            "sweden".to_string(),
+            Some(url_builder::Sorting::NEW),
+            Some(5),
+        );
+        let posts = http::fetch(ub.build()).await;
+        
+        for post in posts {
+            println!("{:<50}{}", post.data.title, post.data.author)
+        }
+
+
+    } 
 }
