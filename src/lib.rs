@@ -30,11 +30,13 @@ mod tests {
 
     #[tokio::test]
     async fn test_urlbuilder() {
+        
         let ub = url_builder::URLBuilder::new(
             "sweden".to_string(),
             Some(url_builder::Sorting::NEW),
             Some(5),
         );
+
         println!("{:#?}", ub);
         let url = ub.build();
         println!("{}",url)
@@ -45,14 +47,14 @@ mod tests {
     #[tokio::test]
     async fn test_fetch() {
         let ub = url_builder::URLBuilder::new(
-            "sweden".to_string(),
+            "Crappyoffbrands".to_string(),
             Some(url_builder::Sorting::NEW),
             Some(5),
         );
         let posts = http::fetch(ub.build()).await;
         
         for post in posts {
-            println!("{:<50}{}", post.data.title, post.data.author)
+            println!("{:<100}{:<32}{:<200}", post.data.title, post.data.author, post.data.url)
         }
 
 
