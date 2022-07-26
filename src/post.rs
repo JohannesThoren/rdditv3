@@ -4,12 +4,19 @@ use serde::{Deserialize, Serialize};
 
 pub struct Post {
     pub kind: String,
-    pub data: Post_Data,
+    pub data: PostData,
 }
 #[derive(Debug, Serialize, Deserialize)]
 
-pub struct Post_Data {
-    pub selftext: String,
+pub struct PostData  {
     pub title: String,
     pub author: String,
+    pub subreddit: String,
+    pub selftext: Option<String>, 
+    pub selftext_html: Option<String>,
+    pub thumbnail: String,
+    pub permalink: String,
+    pub url: String,
+    pub ups: u32,
+    pub downs: u32
 }
