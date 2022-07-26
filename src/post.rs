@@ -17,7 +17,7 @@ pub struct PostData  {
     pub thumbnail: String,
     pub permalink: String,
     pub url: String,
-    pub post_hint: String,
+    pub post_hint: Option<String>,
     pub ups: u32,
     pub downs: u32
 }
